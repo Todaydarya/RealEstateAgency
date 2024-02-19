@@ -1,0 +1,50 @@
+﻿<Page x:Class="RealEstateAgency.Pages.SkyscraperPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:RealEstateAgency.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="SkyscraperPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Text="Управлением высотными домами" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <TextBox Grid.Row="1" x:Name="txbSearchBox"/>
+        <DataGrid x:Name="dgSkyscraper" AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Название ЖК" Binding="{Binding District.Name}" Width="*"/>
+                <DataGridTextColumn Header="Адрес" Binding="{Binding Address}" Width="*"/>
+                <DataGridTextColumn Header="кол-во этажей" Binding="{Binding NumberOfFloors}" Width="*"/>
+                <DataGridTextColumn Header="кол-во подъездов" Binding="{Binding NumberOfEntrances}" Width="*"/>
+                <DataGridTextColumn Header="кол-во квартир" Binding="{Binding NumberOfApartments}" Width="*"/>
+                <DataGridTextColumn Header="Район" Binding="{Binding District.Name}" Width="*"/>
+                <DataGridTextColumn Header="Материал" Binding="{Binding Material.Name}" Width="*"/>
+                <DataGridTextColumn Header="Застройщик" Binding="{Binding Developer.Name}" Width="*"/>
+                <DataGridTemplateColumn Width="Auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Name="btnEdit" Click="btnEdit_Click">
+                                    <Image Source="/Resources/pen.png" Width="10"/>
+                                </Button>
+                                <Button x:Name="btnDeleteClient" Grid.Row="3" HorizontalAlignment="Right" Background="White" Click="btnDeleteClient_Click">
+                                    <Image Source="/Resources/black-rem.png" Width="10"/>
+                                </Button>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="btnAddNewDev" Grid.Row="3" HorizontalAlignment="Left" Background="White">
+            <Image Source="/Resources/plus.png"/>
+        </Button>
+    </Grid>
+</Page>

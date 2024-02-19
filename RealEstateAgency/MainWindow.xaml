@@ -1,0 +1,44 @@
+﻿<Window x:Class="RealEstateAgency.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RealEstateAgency"
+        mc:Ignorable="d"
+        Title="RealEstateAgency" Height="550" Width="900" MinHeight="550" MinWidth="900" WindowState="Maximized"
+        Icon="/Resources/HouseLogo.ico">
+        
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Column="0" Background="#FF2286FE"/>
+        <Grid Grid.Column="1" Background="#FF2286FE"/>
+        <Grid Grid.Column="0" Grid.Row="1" Background="#FFEAF4FF"/>
+        <Grid Grid.Column="1" Grid.Row="1" Background="#FFEAF4FF"/>
+        <Image Source="/Resources/HouseLogo.png" HorizontalAlignment="Left" Height="50"/>
+        <Frame x:Name="mainFrame" Grid.Column="1" Grid.Row="1" NavigationUIVisibility="Hidden" ContentRendered="mainFrame_ContentRendered"/>
+        <TextBlock Text="House23" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Margin="0,0,100,0"/>
+        <StackPanel x:Name="spMenuList" Grid.Row="1" Margin="10" Visibility="Collapsed">
+            <TextBlock Text="Меню" HorizontalAlignment="Center"/>
+            <Button x:Name="btnClient" Content="Клиенты" Click="btnClient_Click"/>
+            <Button x:Name="btnRequest" Content="Заявки" Click="btnRequest_Click"/>
+            <Button x:Name="btnFloat" Content="Квартиры" Click="btnFloat_Click"/>
+            <Button x:Name="btnSkyscrapes" Content="Высотные дома" Click="btnSkyscrapes_Click"/>
+            <Button x:Name="btnDeveloper" Content="Застройщики" Click="btnDeveloper_Click"/>
+            <Button x:Name="btnGoToChart" Content="Диаграмма" Click="btnGoToChart_Click"/>
+            <Button x:Name="btnHelpFindFloat" Content="Подбор квартир" Click="btnHelpFindFloat_Click"/>
+            <Button x:Name="btnChangeAccount" Content="Сменить аккаунт" Click="btnChangeAccount_Click"/>
+            <Button x:Name="btnExit" Content="Выйти" Click="btnExit_Click"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Роль: " HorizontalAlignment="Center"/>
+                <TextBlock Text="{Binding Role1.Name}" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
